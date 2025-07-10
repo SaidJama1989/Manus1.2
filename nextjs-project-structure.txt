@@ -1,0 +1,64 @@
+a1networking-nextjs/
+├── public/
+│   ├── favicon.ico
+│   ├── logo.svg
+│   └── images/
+│       ├── hero-banner.jpg
+│       ├── service-icons/
+│       │   ├── network-infrastructure.svg
+│       │   ├── wifi-solutions.svg
+│       │   ├── office-relocations.svg
+│       │   └── managed-it.svg
+│       └── team/
+│           └── placeholder.jpg
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Navigation.jsx
+│   │   │   └── Layout.jsx
+│   │   ├── ui/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── ServiceCard.jsx
+│   │   │   ├── TestimonialCard.jsx
+│   │   │   └── Hero.jsx
+│   │   ├── sections/
+│   │   │   ├── HeroSection.jsx
+│   │   │   ├── ServicesOverview.jsx
+│   │   │   ├── WhyChooseUs.jsx
+│   │   │   ├── CaseStudyPreview.jsx
+│   │   │   └── ContactCTA.jsx
+│   │   └── forms/
+│   │       └── ContactForm.jsx
+│   ├── pages/
+│   │   ├── index.js
+│   │   ├── about.js
+│   │   ├── contact.js
+│   │   ├── services/
+│   │   │   ├── index.js
+│   │   │   ├── network-infrastructure.js
+│   │   │   ├── wifi-solutions.js
+│   │   │   ├── office-relocations.js
+│   │   │   └── managed-it-services.js
+│   │   ├── case-studies/
+│   │   │   ├── index.js
+│   │   │   └── [slug].js
+│   │   └── blog/
+│   │       ├── index.js
+│   │       └── [slug].js
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── theme.js
+│   ├── lib/
+│   │   ├── sanity.js
+│   │   └── api.js
+│   └── utils/
+│       └── helpers.js
+├── sanity-studio/
+│   └── ... (Sanity CMS configuration)
+├── .env.local
+├── next.config.js
+├── package.json
+└── tailwind.config.js

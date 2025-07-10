@@ -1,0 +1,71 @@
+// src/components/sections/ServicesOverview.jsx
+import Link from 'next/link';
+import ServiceCard from '../ui/ServiceCard';
+
+const ServicesOverview = () => {
+  const services = [
+    {
+      id: 'network-infrastructure',
+      title: 'Network Infrastructure',
+      description: 'Robust network solutions designed to ensure reliability, security, and performance for your business operations.',
+      icon: '/images/service-icons/network-infrastructure.svg',
+      link: '/services/network-infrastructure'
+    },
+    {
+      id: 'wifi-solutions',
+      title: 'WiFi Solutions',
+      description: 'Enterprise-grade wireless networks that provide seamless connectivity and coverage throughout your workplace.',
+      icon: '/images/service-icons/wifi-solutions.svg',
+      link: '/services/wifi-solutions'
+    },
+    {
+      id: 'office-relocations',
+      title: 'Office Relocations',
+      description: 'End-to-end IT relocation services to ensure a smooth transition with minimal downtime for your business.',
+      icon: '/images/service-icons/office-relocations.svg',
+      link: '/services/office-relocations'
+    },
+    {
+      id: 'managed-it',
+      title: 'Managed IT Services',
+      description: 'Comprehensive IT management and support services to keep your systems running smoothly and securely.',
+      icon: '/images/service-icons/managed-it.svg',
+      link: '/services/managed-it-services'
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Our Services</h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            We provide end-to-end IT solutions tailored to meet the unique needs of your business.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service) => (
+            <ServiceCard 
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              link={service.link}
+            />
+          ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <Link href="/services">
+            <a className="inline-block bg-primary hover:bg-primary-dark text-white font-medium px-8 py-3 rounded-md transition-colors duration-300">
+              View All Services
+            </a>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesOverview;

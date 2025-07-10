@@ -1,0 +1,106 @@
+// src/components/sections/Testimonials.jsx
+import React, { useState } from 'react';
+import TestimonialCard from '../ui/TestimonialCard';
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Sarah Johnson',
+      company: 'Thames Financial Group',
+      position: 'IT Director',
+      content: 'A1 Networking transformed our outdated infrastructure into a modern, efficient system. Their expertise in network design and implementation was invaluable, and their ongoing support has been exceptional.',
+      image: '/images/testimonials/person1.jpg'
+    },
+    {
+      id: 2,
+      name: 'James Wilson',
+      company: 'London Medical Partners',
+      position: 'Operations Manager',
+      content: 'When we needed to relocate our office, A1 Networking ensured a seamless transition with zero downtime. Their team was professional, efficient, and went above and beyond to meet our tight deadline.',
+      image: '/images/testimonials/person2.jpg'
+    },
+    {
+      id: 3,
+      name: 'Emma Roberts',
+      company: 'Creative Solutions Ltd',
+      position: 'CEO',
+      content: 'As a growing business, we needed an IT partner who could scale with us. A1 Networking has provided reliable support and strategic guidance that has helped us avoid costly mistakes and improve productivity.',
+      image: '/images/testimonials/person3.jpg'
+    }
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">What Our Clients Say</h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Don't just take our word for it. Here's what our clients have to say about our services.
+          </p>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto">
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out" 
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="min-w-full">
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex justify-center mt-8 gap-4">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`w-3 h-3 rounded-full ${
+                  index === activeIndex ? 'bg-primary' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Arrow Controls */}
+          <button
+            onClick={prevTestimonial}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 text-primary hover:text-primary-dark focus:outline-none"
+            aria-label="Previous testimonial"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={nextTestimonial}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 text-primary hover:text-primary-dark focus:outline-none"
+            aria-label="Next testimonial"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;

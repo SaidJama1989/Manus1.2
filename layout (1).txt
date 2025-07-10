@@ -1,0 +1,29 @@
+// src/components/layout/Layout.jsx
+import React from 'react';
+import Head from 'next/head';
+import Header from './Header';
+import Footer from './Footer';
+
+const Layout = ({ children, title = 'A1 Networking - IT Solutions for Business', description = 'A1 Networking provides IT consulting services including network infrastructure, WiFi solutions, office relocations, and managed IT services.' }) => {
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Layout;
